@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .welcome-container {
+    flex: 1;
+    background-color: #182232;
+    color: #fff;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .welcome-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-container p {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  
+  .welcome-footer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatars {
+    display: flex;
+  }
+  
+  .avatars img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .signup-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .signup-header h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .signup-header p {
+    margin-bottom: 40px;
+    color: #6c757d;
+  }
+  
+  .signup-header a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-header a:hover {
+    text-decoration: underline;
+  }
+  
+  .signup-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .password-input-container {
+    position: relative;
+    
+  }
+  
+  .password-input-container input {
+    width: calc(100% - 40px);
+    padding-right: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+  }
+  
+  .terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .terms label {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .terms a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .terms a:hover {
+    text-decoration: underline;
+  }
+  
+  button {
+    width: 100%;
+    padding: 15px;
+    background-color: #4e53ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #6c63ff;
+  }
+
+  .btn{
+    background-color: transparent!important;
+    color:#1f7edd;
+    border-width: 0px;
+    width: 93px; 
+    font-weight: bold;
+  }
+  
