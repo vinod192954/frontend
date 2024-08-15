@@ -1,10 +1,11 @@
 import Signup from './components/SignUpAndSignIn';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Signup/>
+      <Dashboard/>
     </div>
   );
 }

@@ -154,3 +154,9 @@ body {
     font-weight: bold;
   }
   
+  @media screen and (max-width:576px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+  }

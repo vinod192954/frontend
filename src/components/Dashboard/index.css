@@ -1,0 +1,54 @@
+.dashboard-container{
+    height: 100vh;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.controllers-section{
+    background-color: #122746;
+    width: 20%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.workspace-container{
+    padding: 20px;
+}
+.user-profile-section{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 10px;
+}
+.user-profile-section-details{
+    line-height: 8px;
+    color: #bcb6b6;
+}
+.user-profile-section h1{
+    font-size: 18px;
+    font-family: Roboto;
+}
+.horzontal-bar{
+   color: #6b6565; 
+}
+.tab-section{
+    background-color:#2c3f5c;
+    opacity:0.5;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: #fff;
+    height: 40px;
+    gap: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.greeting-container{
+    background-color: rgb(75, 112, 182,0.5);
+    padding: 20px;
+    height: 100px;
+    width: 950px;
+    color: white;
+    border-radius: 5px;
+}
