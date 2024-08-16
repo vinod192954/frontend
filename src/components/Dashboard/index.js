@@ -1,3 +1,5 @@
+import Cookies from "js-cookie"
+import { Redirect } from 'react-router-dom'
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { RiCompassDiscoverLine } from "react-icons/ri";
@@ -7,7 +9,19 @@ import { SlSettings } from "react-icons/sl";
 import { SlLogout } from "react-icons/sl";
 import "./index.css"
 
-const Dashboard=()=>{
+const Dashboard=(props)=>{
+    const jwtToken = Cookies.get("jwt_token")
+    if (jwtToken===undefined){
+         <Redirect to="/" />
+    }
+  
+    const Logout=()=>{
+        const{history} = props 
+        Cookies.remove("jwt_token")
+        history.replace("/")
+    }
+  
+
     return (
         <div className="dashboard-container">
            <div className="controllers-section">
@@ -40,8 +54,10 @@ const Dashboard=()=>{
                     <p>settings</p>
                 </div>
                 <div className="tab-section">
-                    <SlLogout/>
-                    <p>Logout</p>
+                    <button className="logout-btn" onClick={Logout}>
+                        <SlLogout color="#fff"/>
+                        <p>Logout</p>
+                    </button>
                 </div>
            </div>
            <div className="workspace-container">

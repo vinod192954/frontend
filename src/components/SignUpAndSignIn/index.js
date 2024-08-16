@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+
 import SignInPage from '../SignInPage';
 import SignUpPage from '../SignUpPage';
 import './index.css';
 
 const SignupAndSignIn = () => {
     const [isSignInVisibile,setVisibility] = useState(false)
-
-  const onClickChangeVisibilty=(value)=>{
-    console.log(value)
-    setVisibility(value)
-  }
+   
+    const onClickChangeVisibilty=(value)=>{
+      console.log(value)
+      setVisibility(value)
+    }
+    
 
   return (
     <div className="container">

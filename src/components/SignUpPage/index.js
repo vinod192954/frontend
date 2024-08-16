@@ -9,6 +9,7 @@ const SignUpPage=(props)=>{
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [role,setRole] = useState('')
+    const [resultMessage,setMessage] = useState('')
 
     const togglePasswordVisibility=()=>{
         setPasswordVisible(!passwordVisible)
@@ -36,8 +37,33 @@ const SignUpPage=(props)=>{
         onClickChangeVisibilty(true)
     }
 
-    const RegisterNewUser=(event)=>{
+    const RegisterNewUser=async(event)=>{
         event.preventDefault()
+        const userDetails = {username,email,password,role}  
+        const url="https://taskmanagerapis.onrender.com/register"
+        const options={
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(userDetails)
+        }
+        
+        const response = await fetch(url,options)
+        const data = await response.json()
+        if (response.ok===true){
+          const {message} = data
+          setMessage(message)
+        }
+        else{
+          const {message} = data
+          setMessage(message)
+        }
+
+        setUsername('')
+        setEmail('')
+        setPassword('')
+        setRole('')
     }
 
     return (
@@ -49,7 +75,7 @@ const SignUpPage=(props)=>{
           </p>
         </div>
         <form className="signup-form" onSubmit={RegisterNewUser}>
-          <label>Full name *</label>
+          <label>User name *</label>
           <input type="text" value={username} onChange={onChangeUsername} required placeholder="Enter your full name" />
 
           <label>Email address *</label>
@@ -78,7 +104,7 @@ const SignUpPage=(props)=>{
               </select>
               </div>
 
-         
+         <p>{resultMessage}</p>
         
           <button type="submit">Create your free account</button>
         </form>

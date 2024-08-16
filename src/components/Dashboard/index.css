@@ -55,3 +55,12 @@
 .tab-section:hover{
     background-color: rgb(255, 255, 255,0.5);
 }
+.logout-btn{
+    background-color: transparent;
+    border-width: 0px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    padding: 10px;
+}

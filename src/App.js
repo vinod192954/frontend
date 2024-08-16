@@ -1,6 +1,8 @@
-import {BrowserRouter,Switch,Route} from 'react-router-dom'
+import {BrowserRouter,Switch} from 'react-router-dom'
 import Signup from './components/SignUpAndSignIn'
+import PublicRoute from './components/PublicRoute';
 import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -8,9 +10,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Switch>
-        <Route path="/" component={Signup}/>
-        <Route path="/dashboard" component={Dashboard} /> 
-
+        <PublicRoute exact path="/" component={Signup}/>
+        <ProtectedRoute exact path="/dashboard" component={Dashboard} /> 
         </Switch>
       </BrowserRouter>
       
