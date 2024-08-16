@@ -4,6 +4,7 @@ import { RiCompassDiscoverLine } from "react-icons/ri";
 import { MdOutlineAssignment } from "react-icons/md";
 import { LuUserSquare2 } from "react-icons/lu";
 import { SlSettings } from "react-icons/sl";
+import { SlLogout } from "react-icons/sl";
 import "./index.css"
 
 const Dashboard=()=>{
@@ -16,7 +17,6 @@ const Dashboard=()=>{
                         <h1>Vinod</h1>
                         <p>vvinnu590@gmail.com</p>
                     </div>
-                   
                 </div>
                 <hr className="horzontal-bar"/>
                 <div className="tab-section">
@@ -38,6 +38,10 @@ const Dashboard=()=>{
                 <div className="tab-section">
                     <SlSettings/>
                     <p>settings</p>
+                </div>
+                <div className="tab-section">
+                    <SlLogout/>
+                    <p>Logout</p>
                 </div>
            </div>
            <div className="workspace-container">

@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { FaEye } from "react-icons/fa";
-import { FaRegEyeSlash } from "react-icons/fa";
+import SignInPage from '../SignInPage';
+import SignUpPage from '../SignUpPage';
 import './index.css';
 
-const Signup = () => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [isSignVisible,setSignUpVisible] = useState(true);
+const SignupAndSignIn = () => {
+    const [isSignInVisibile,setVisibility] = useState(false)
 
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
-  const toggleIsSignUpVisible=()=>{
-    setSignUpVisible((prevState)=>!prevState)
+  const onClickChangeVisibilty=(value)=>{
+    console.log(value)
+    setVisibility(value)
   }
 
   return (
@@ -29,69 +25,11 @@ const Signup = () => {
       </div>
 
       {/* Right-side section */}
-      {isSignVisible ?( <div className="signup-container">
-        <div className="signup-header">
-          <h2>Sign up</h2>
-          <p>
-            Already have an account?  <button className='btn' onClick={toggleIsSignUpVisible}>Sign In</button>
-          </p>
-        </div>
-        <form className="signup-form">
-          <label>Full name *</label>
-          <input type="text" required placeholder="Enter your full name" />
-
-          <label>Email address *</label>
-          <input type="email" required placeholder="Enter your email address" />
-
-          <label>Password *</label>
-          <div className="password-input-container">
-            <input required
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Enter your password"
-            />
-            <span className="toggle-password" onClick={togglePasswordVisibility}>
-              {passwordVisible ? <FaEye/> : <FaRegEyeSlash/>}
-            </span>
-          </div>
-
-          
-
-         
-
-          <button type="submit">Create your free account</button>
-        </form>
-      </div>) : <div className="signup-container">
-        <div className="signup-header">
-          <h2>Sign In</h2>
-          <p>
-            new User ? Create  an account? <button  className='btn' onClick={toggleIsSignUpVisible}>Sign Up</button>
-          </p>
-        </div>
-        <form className="signup-form">
-         
-          <label>Email address *</label>
-          <input type="email" required placeholder="Enter your email address" />
-
-          <label>Password *</label>
-          <div className="password-input-container">
-            <input required
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Enter your password"
-            />
-            <span className="toggle-password" onClick={togglePasswordVisibility}>
-              {passwordVisible ? <FaEye/> : <FaRegEyeSlash/>}
-            </span>
-          </div>
-
-         
-         
-          <button type="submit">Login</button>
-        </form>
-      </div> }
-     
+      
+     {isSignInVisibile ? <SignInPage onClickChangeVisibilty={onClickChangeVisibilty}/> : <SignUpPage onClickChangeVisibilty={onClickChangeVisibilty}/>}
      
     </div>
   );
 };
 
-export default Signup;
+export default SignupAndSignIn;
