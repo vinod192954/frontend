@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Link ,Switch,Route} from "react-router-dom"
 import { Redirect } from 'react-router-dom'
 import { FaRegUserCircle } from "react-icons/fa";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
-import { RiCompassDiscoverLine } from "react-icons/ri";
 import { MdOutlineAssignment } from "react-icons/md";
 import { LuUserSquare2 } from "react-icons/lu";
-import { SlSettings } from "react-icons/sl";
 import { SlLogout } from "react-icons/sl";
+import { GrInProgress } from "react-icons/gr";
 import Home from "../HomePage";
 import Profile from "../ProfileSection";
 import TaskManager from "../TaskManagerSection";
@@ -54,8 +54,8 @@ const Dashboard=(props)=>{
                 
                 <div className="tab-section">
                     
-                        <RiCompassDiscoverLine/>
-                        <p>Discover</p>
+                        <IoIosCheckmarkCircleOutline/>
+                        <p>Completed Tasks</p>
                     
                 </div>
                 
@@ -64,10 +64,14 @@ const Dashboard=(props)=>{
                  className="link-item"
                 to="/dashboard/taskmanager"> 
                         <MdOutlineAssignment/>
-                        <p>Tasks</p>
+                        <p>Task Manager</p>
                    </Link>
                 </div>
                 
+                <div className="tab-section">
+                    <GrInProgress/>
+                    <p>Pending Tasks</p>
+                </div>
                 
                 <div className={`tab-section ${activeTab === 'profile' ? 'active-tab' :''}`}>
                     <Link onClick={() => handleTabClick('profile')}
@@ -78,10 +82,7 @@ const Dashboard=(props)=>{
                     </Link>
                 </div>
                
-                <div className="tab-section">
-                    <SlSettings/>
-                    <p>settings</p>
-                </div>
+    
                 <div className="tab-section">
                     <button className="logout-btn" onClick={Logout}>
                         <SlLogout color="#fff"/>
