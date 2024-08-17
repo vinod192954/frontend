@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
       <Switch>
         <PublicRoute exact path="/" component={Signup}/>
-        <ProtectedRoute exact path="/dashboard" component={Dashboard} /> 
+        <ProtectedRoute  path="/dashboard" component={Dashboard} /> 
         </Switch>
       </BrowserRouter>
       

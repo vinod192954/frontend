@@ -1,4 +1,6 @@
 import Cookies from "js-cookie"
+import { useState } from "react";
+import { Link ,Switch,Route} from "react-router-dom"
 import { Redirect } from 'react-router-dom'
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
@@ -7,9 +9,13 @@ import { MdOutlineAssignment } from "react-icons/md";
 import { LuUserSquare2 } from "react-icons/lu";
 import { SlSettings } from "react-icons/sl";
 import { SlLogout } from "react-icons/sl";
+import Home from "../HomePage";
+import Profile from "../ProfileSection";
+import TaskManager from "../TaskManagerSection";
 import "./index.css"
 
 const Dashboard=(props)=>{
+    const [activeTab,setActiveTab] = useState('home')
     const jwtToken = Cookies.get("jwt_token")
     if (jwtToken===undefined){
          <Redirect to="/" />
@@ -21,6 +27,9 @@ const Dashboard=(props)=>{
         history.replace("/")
     }
   
+    const handleTabClick=(tab)=>{
+        setActiveTab(tab)
+    }
 
     return (
         <div className="dashboard-container">
@@ -33,22 +42,42 @@ const Dashboard=(props)=>{
                     </div>
                 </div>
                 <hr className="horzontal-bar"/>
-                <div className="tab-section">
-                    <IoHomeOutline/>
-                    <p>Home</p>
+                
+                <div className={`tab-section ${activeTab === 'home' ? 'active-tab' :''}`}>
+                <Link onClick={() => handleTabClick('home')}
+                 className="link-item"
+                 to="/dashboard/home"> 
+                        <IoHomeOutline/>
+                        <p>Home</p>
+                   </Link>
                 </div> 
+                
                 <div className="tab-section">
-                    <RiCompassDiscoverLine/>
-                    <p>Discover</p>
+                    
+                        <RiCompassDiscoverLine/>
+                        <p>Discover</p>
+                    
                 </div>
-                <div className="tab-section">
-                    <MdOutlineAssignment/>
-                    <p>Tasks</p>
+                
+                <div className={`tab-section ${activeTab === 'task' ? 'active-tab' :''}`}>
+                <Link onClick={() => handleTabClick('task')}
+                 className="link-item"
+                to="/dashboard/taskmanager"> 
+                        <MdOutlineAssignment/>
+                        <p>Tasks</p>
+                   </Link>
                 </div>
-                <div className="tab-section">
-                    <LuUserSquare2/>
-                    <p>profile</p>
+                
+                
+                <div className={`tab-section ${activeTab === 'profile' ? 'active-tab' :''}`}>
+                    <Link onClick={() => handleTabClick('profile')}
+                    className="link-item" 
+                    to="/dashboard/profile"> 
+                        <LuUserSquare2/>
+                        <p>profile</p>
+                    </Link>
                 </div>
+               
                 <div className="tab-section">
                     <SlSettings/>
                     <p>settings</p>
@@ -61,10 +90,14 @@ const Dashboard=(props)=>{
                 </div>
            </div>
            <div className="workspace-container">
-            <h1>Dashboard</h1> 
-            <div className="greeting-container">
-                <h1>Welcome Dear User!</h1>
-            </div>
+            <Switch>
+            <Redirect exact from="/dashboard" to="/dashboard/home" />
+                <Route exact path="/dashboard/home" component={Home} />
+                <Route  path="/dashboard/profile" component={Profile}/>
+                <Route  path="/dashboard/taskmanager" component={TaskManager}/>
+                <Route  path="/dashboard" component={Home} />
+            </Switch> 
+           
            </div>
         </div>
     )
