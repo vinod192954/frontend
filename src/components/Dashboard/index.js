@@ -12,6 +12,8 @@ import { GrInProgress } from "react-icons/gr";
 import Home from "../HomePage";
 import Profile from "../ProfileSection";
 import TaskManager from "../TaskManagerSection";
+import PendingTasks from "../PendingTasks";
+import CompletedTasks from "../CompletedTasks";
 import "./index.css"
 
 const Dashboard=(props)=>{
@@ -52,11 +54,13 @@ const Dashboard=(props)=>{
                    </Link>
                 </div> 
                 
-                <div className="tab-section">
-                    
+                <div className={`tab-section ${activeTab === 'completed' ? 'active-tab' :''}`}>
+                <Link onClick={() => handleTabClick('completed')}
+                 className="link-item"
+                 to="/dashboard/CompletedTasks" >
                         <IoIosCheckmarkCircleOutline/>
                         <p>Completed Tasks</p>
-                    
+                    </Link>
                 </div>
                 
                 <div className={`tab-section ${activeTab === 'task' ? 'active-tab' :''}`}>
@@ -68,9 +72,12 @@ const Dashboard=(props)=>{
                    </Link>
                 </div>
                 
-                <div className="tab-section">
+                <div className={`tab-section ${activeTab === 'pending' ? 'active-tab' :''}`}>
+                <Link onClick={() => handleTabClick('pending')}  className="link-item"
+                to="/dashboard/PendingTasks">
                     <GrInProgress/>
                     <p>Pending Tasks</p>
+                </Link>  
                 </div>
                 
                 <div className={`tab-section ${activeTab === 'profile' ? 'active-tab' :''}`}>
@@ -95,6 +102,8 @@ const Dashboard=(props)=>{
             <Redirect exact from="/dashboard" to="/dashboard/home" />
                 <Route exact path="/dashboard/home" component={Home} />
                 <Route  path="/dashboard/profile" component={Profile}/>
+                <Route path="/dashboard/CompletedTasks" component={CompletedTasks}/>
+                <Route path="/dashboard/PendingTasks" component={PendingTasks}/>
                 <Route  path="/dashboard/taskmanager" component={TaskManager}/>
                 <Route  path="/dashboard" component={Home} />
             </Switch> 
